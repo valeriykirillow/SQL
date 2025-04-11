@@ -1,39 +1,13 @@
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
 
--- -----------------------------------------------------
--- Table `mydb`.`model`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`model` (                                                
-  `id_model` INT NOT NULL,
-  `model_name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_model`),
-  UNIQUE INDEX `model_name_UNIQUE` (`model_name` ASC) VISIBLE)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 CREATE TABLE IF NOT EXISTS `model` (
     `id_model` INTEGER PRIMARY KEY AUTOINCREMENT,
     `model_name` VARCHAR(45) NOT NULL,
     UNIQUE (`model_name`)
 );
+
 -- -----------------------------------------------------
--- Table `mydb`.`device`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`device` (
-  `id_device` INT NOT NULL AUTO_INCREMENT,
-  `inventory_number` VARCHAR(45) NOT NULL,
-  `firmware_version` VARCHAR(45) NOT NULL,
-  `model_id` INT NOT NULL,
-  PRIMARY KEY (`id_device`),
-  UNIQUE INDEX `inventory_number_UNIQUE` (`inventory_number` ASC) VISIBLE,
-  INDEX `model_id_idx` (`model_id` ASC) VISIBLE,
-  CONSTRAINT `model_id`
-    FOREIGN KEY (`model_id`)
-    REFERENCES `mydb`.`model` (`id_model`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 CREATE TABLE IF NOT EXISTS `device` (
     `id_device` INTEGER PRIMARY KEY AUTOINCREMENT,
     `inventory_number` VARCHAR(45) NOT NULL UNIQUE,
@@ -45,71 +19,23 @@ CREATE TABLE IF NOT EXISTS `device` (
         ON UPDATE NO ACTION
 );
 
+-- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Table `mydb`.`operator`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`operator` (
-  `id_operator` INT NOT NULL AUTO_INCREMENT,
-  `full_name` VARCHAR(45) NOT NULL,
-  `inventory_number` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_operator`),
-  UNIQUE INDEX `full_name_UNIQUE` (`full_name` ASC) VISIBLE,
-  UNIQUE INDEX `inventory_number_UNIQUE` (`inventory_number` ASC) VISIBLE)
-ENGINE = InnoDB;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 CREATE TABLE IF NOT EXISTS `operator` (
     `id_operator` INTEGER PRIMARY KEY AUTOINCREMENT,
     `full_name` VARCHAR(45) NOT NULL UNIQUE,
     `inventory_number` VARCHAR(45) NOT NULL UNIQUE
 );
 
+-- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Table `mydb`.`bug`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`bug` (
-  `id_bug` INT NOT NULL AUTO_INCREMENT,
-  `description` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_bug`),
-  UNIQUE INDEX `description_UNIQUE` (`description` ASC) VISIBLE)
-ENGINE = InnoDB;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 CREATE TABLE IF NOT EXISTS `bug` (
     `id_bug` INTEGER PRIMARY KEY AUTOINCREMENT,
     `description` VARCHAR(45) NOT NULL UNIQUE
 );
 
 -- -----------------------------------------------------
--- Table `mydb`.`check`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`check` (
-  `id_check` INT NOT NULL AUTO_INCREMENT,
-  `device_id` INT NOT NULL,
-  `operator_id` INT NOT NULL,
-  `bug_id` INT NOT NULL,
-  `date_time` DATETIME NOT NULL,
-  PRIMARY KEY (`id_check`),
-  INDEX `device_idx` (`device_id` ASC) VISIBLE,
-  INDEX `operator_idx` (`operator_id` ASC) VISIBLE,
-  INDEX `malfunction_idx` (`bug_id` ASC) VISIBLE,
-  CONSTRAINT `device`
-    FOREIGN KEY (`device_id`)
-    REFERENCES `mydb`.`device` (`id_device`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `operator`
-    FOREIGN KEY (`operator_id`)
-    REFERENCES `mydb`.`operator` (`id_operator`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `bug`
-    FOREIGN KEY (`bug_id`)
-    REFERENCES `mydb`.`bug` (`id_bug`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 CREATE TABLE IF NOT EXISTS `check` (
     `id_check` INTEGER PRIMARY KEY AUTOINCREMENT,
     `device_id` INTEGER NOT NULL,
