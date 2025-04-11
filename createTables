@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `bug` (
 
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `check` (
+CREATE TABLE IF NOT EXISTS `checks` (
     `id_check` INTEGER PRIMARY KEY AUTOINCREMENT,
     `device_id` INTEGER NOT NULL,
     `operator_id` INTEGER NOT NULL,
