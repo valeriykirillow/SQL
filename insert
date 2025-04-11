@@ -28,8 +28,13 @@ INSERT INTO operator (full_name, inventory_number) VALUES ('Кузнецов К.
 INSERT INTO operator (full_name, inventory_number) VALUES ('Смирнова С.С.', '1452а5');
 
 
-
-
+bug->
+-------------------------------------------------------
+INSERT INTO bug (description) VALUES ('Ошибка подключения');
+INSERT INTO bug (description) VALUES ('Ошибка датчика');
+INSERT INTO bug (description) VALUES ('Неправильная конфигурация');
+INSERT INTO bug (description) VALUES ('Сбой питания');
+INSERT INTO bug (description) VALUES ('Ошибка обновления прошивки');
 
 
 
