@@ -85,7 +85,7 @@ JOIN
 JOIN 
     device ON checks.device_id = device.id_device
 WHERE 
-    device.inventory_number = '';
+    device.inventory_number = '123457';
     
     
 
