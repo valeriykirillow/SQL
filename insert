@@ -1,1 +1,13 @@
+model->
+-------------------------------------------------------
+INSERT INTO `model` (`model_name`) VALUES ('ЩП8155');
+INSERT INTO `model` (`model_name`) VALUES ('ЩП8156');
+INSERT INTO `model` (`model_name`) VALUES ('ПП8180');
+INSERT INTO `model` (`model_name`) VALUES ('ЩП8157');
+INSERT INTO `model` (`model_name`) VALUES ('ПП8181');
+
+
+devices->
+-------------------------------------------------------
+
 
