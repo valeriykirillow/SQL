@@ -79,6 +79,13 @@ SELECT
 FROM
     checks
 JOIN
+    bug ON checks.bug_id = bug.id_bug
+JOIN 
+    operator ON checks.operator_id = operator.id_operator
+JOIN 
+    device ON checks.device_id = device.id_device
+WHERE 
+    device.inventory_number = '';
     
     
 
