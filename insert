@@ -9,5 +9,15 @@ INSERT INTO `model` (`model_name`) VALUES ('ПП8181');
 
 devices->
 -------------------------------------------------------
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123456', '1234в03', 3);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123457', '1234в04', 1);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123458', '1234в05', 5);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123459', '1234в06', 2);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123460', '1234в07', 6);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123461', '1234в08', 4);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123462', '1234в09', 3);
+INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123463', '1234в10', 1);
+
+
 
 
