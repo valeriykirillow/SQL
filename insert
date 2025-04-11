@@ -53,3 +53,4 @@ INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (2, 4, 1, 
 
 
 
+.
