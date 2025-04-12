@@ -1,13 +1,9 @@
-model->
--------------------------------------------------------
 INSERT INTO `model` (`model_name`) VALUES ('ЩП8155');
 INSERT INTO `model` (`model_name`) VALUES ('ЩП8156');
 INSERT INTO `model` (`model_name`) VALUES ('ПП8180');
 INSERT INTO `model` (`model_name`) VALUES ('ЩП8157');
 INSERT INTO `model` (`model_name`) VALUES ('ПП8181');
 
-
-devices->
 -------------------------------------------------------
 INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123456', '1234в03', 3);
 INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123457', '1234в04', 1);
@@ -18,8 +14,6 @@ INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('12346
 INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123462', '1234в09', 3);
 INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123463', '1234в10', 1);
 
-
-operator-> 
 -------------------------------------------------------
 INSERT INTO operator (full_name, inventory_number) VALUES ('Петров А.А.', '1452а1');
 INSERT INTO operator (full_name, inventory_number) VALUES ('Сидоров С.С.', '1452а2');
@@ -27,8 +21,6 @@ INSERT INTO operator (full_name, inventory_number) VALUES ('Иванов И.И.'
 INSERT INTO operator (full_name, inventory_number) VALUES ('Кузнецов К.К.', '1452а4');
 INSERT INTO operator (full_name, inventory_number) VALUES ('Смирнова С.С.', '1452а5');
 
-
-bug->
 -------------------------------------------------------
 INSERT INTO bug (description) VALUES ('Ошибка подключения');
 INSERT INTO bug (description) VALUES ('Ошибка датчика');
@@ -36,21 +28,16 @@ INSERT INTO bug (description) VALUES ('Неправильная конфигур
 INSERT INTO bug (description) VALUES ('Сбой питания');
 INSERT INTO bug (description) VALUES ('Ошибка обновления прошивки');
 
-
-checks-> 
 -------------------------------------------------------
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (1, 2, 4, '2025-04-11 14:55:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (1, 2, 4, '2025-04-10 10:30:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (2, 1, 3, '2025-04-09 11:45:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (3, 3, 2, '2025-04-08 12:15:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (4, 2, 5, '2025-04-07 09:00:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (5, 4, 1, '2025-04-06 14:20:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (6, 5, 3, '2025-04-05 16:35:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (7, 2, 4, '2025-04-04 08:50:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (8, 1, 2, '2025-04-03 13:00:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (1, 3, 5, '2025-04-02 15:45:00');
-INSERT INTO checks (device_id, operator_id, bug_id, date_time) VALUES (2, 4, 1, '2025-04-01 17:10:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (1, 2, 'Ошибка подключения','2025-04-11 14:55:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (1, 2, 'Ошибка датчика', '2025-04-10 10:30:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (2, 1, 'Ошибка датчика', '2025-04-09 11:45:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (3, 3, 'Ошибка датчика', '2025-04-08 12:15:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (4, 2, 'Неправильная конфигурация', '2025-04-07 09:00:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (5, 4, 'Неправильная конфигурация', '2025-04-06 14:20:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (6, 5, 'Неправильная конфигурация', '2025-04-05 16:35:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (7, 2, 'Сбой питания', '2025-04-04 08:50:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (8, 1, 'Сбой питания', '2025-04-03 13:00:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (1, 3, 'Ошибка обновления прошивки', '2025-04-02 15:45:00');
+INSERT INTO checks (device_id, operator_id, description, date_time) VALUES (2, 4, 'Ошибка обновления прошивки', '2025-04-01 17:10:00');
 
-
-
-.
