@@ -2,16 +2,15 @@
 
 CREATE TABLE IF NOT EXISTS `model` (
     `id_model` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `model_name` VARCHAR(45) NOT NULL,
-    UNIQUE (`model_name`)
+    `model_name` VARCHAR(15) NOT NULL UNIQUE
 );
 
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `device` (
     `id_device` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `inventory_number` VARCHAR(45) NOT NULL UNIQUE,
-    `firmware_version` VARCHAR(45) NOT NULL,
+    `inventory_number` VARCHAR(15) NOT NULL UNIQUE,
+    `firmware_version` VARCHAR(25) NOT NULL,
     `model_id` INTEGER NOT NULL,
     FOREIGN KEY (`model_id`)
         REFERENCES `model` (`id_model`)
@@ -23,15 +22,8 @@ CREATE TABLE IF NOT EXISTS `device` (
 
 CREATE TABLE IF NOT EXISTS `operator` (
     `id_operator` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `full_name` VARCHAR(45) NOT NULL UNIQUE,
-    `inventory_number` VARCHAR(45) NOT NULL UNIQUE
-);
-
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `bug` (
-    `id_bug` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `description` VARCHAR(45) NOT NULL UNIQUE
+    `full_name` VARCHAR(20) NOT NULL UNIQUE,
+    `inventory_number` VARCHAR(15) NOT NULL UNIQUE
 );
 
 -- -----------------------------------------------------
@@ -40,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `checks` (
     `id_check` INTEGER PRIMARY KEY AUTOINCREMENT,
     `device_id` INTEGER NOT NULL,
     `operator_id` INTEGER NOT NULL,
-    `bug_id` INTEGER NOT NULL,
+    `description` VARCHAR(255) NOT NULL,
     `date_time` DATETIME NOT NULL,
     FOREIGN KEY (`device_id`)
         REFERENCES `device` (`id_device`)
@@ -48,10 +40,6 @@ CREATE TABLE IF NOT EXISTS `checks` (
         ON UPDATE CASCADE,
     FOREIGN KEY (`operator_id`)
         REFERENCES `operator` (`id_operator`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY (`bug_id`)
-        REFERENCES `bug` (`id_bug`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
