@@ -15,11 +15,11 @@ INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('12346
 INSERT INTO device (inventory_number, firmware_version, model_id) VALUES ('123463', '1234в10', 1);
 
 -------------------------------------------------------
-INSERT INTO operator (full_name, inventory_number) VALUES ('Петров А.А.', '1452а1');
-INSERT INTO operator (full_name, inventory_number) VALUES ('Сидоров С.С.', '1452а2');
-INSERT INTO operator (full_name, inventory_number) VALUES ('Иванов И.И.', '1452а3');
-INSERT INTO operator (full_name, inventory_number) VALUES ('Кузнецов К.К.', '1452а4');
-INSERT INTO operator (full_name, inventory_number) VALUES ('Смирнова С.С.', '1452а5');
+INSERT INTO operator (full_name, personal_number) VALUES ('Петров А.А.', '1452а1');
+INSERT INTO operator (full_name, personal_number) VALUES ('Сидоров С.С.', '1452а2');
+INSERT INTO operator (full_name, personal_number) VALUES ('Иванов И.И.', '1452а3');
+INSERT INTO operator (full_name, personal_number) VALUES ('Кузнецов К.К.', '1452а4');
+INSERT INTO operator (full_name, personal_number) VALUES ('Смирнова С.С.', '1452а5');
 
 -------------------------------------------------------
 INSERT INTO bug (description) VALUES ('Ошибка подключения');
