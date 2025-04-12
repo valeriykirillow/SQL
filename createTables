@@ -1,15 +1,18 @@
-
+drop table if exists checks;
+drop table if exists device;
+drop table if exists model;
+drop table if exists operator;
 
 CREATE TABLE IF NOT EXISTS `model` (
     `id_model` INTEGER PRIMARY KEY AUTOINCREMENT,
     `model_name` VARCHAR(15) NOT NULL UNIQUE
 );
 
--- -----------------------------------------------------
+-- -----------------------------------------------------ЩП55 (1,2,3); ЩП56(101,102,103)
 
 CREATE TABLE IF NOT EXISTS `device` (
     `id_device` INTEGER PRIMARY KEY AUTOINCREMENT,
-    `inventory_number` VARCHAR(15) NOT NULL UNIQUE,
+    `inventory_number` VARCHAR(15) NOT NULL,
     `firmware_version` VARCHAR(25) NOT NULL,
     `model_id` INTEGER NOT NULL,
     FOREIGN KEY (`model_id`)
@@ -23,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `device` (
 CREATE TABLE IF NOT EXISTS `operator` (
     `id_operator` INTEGER PRIMARY KEY AUTOINCREMENT,
     `full_name` VARCHAR(20) NOT NULL UNIQUE,
-    `inventory_number` VARCHAR(15) NOT NULL UNIQUE
+    `personal_number` VARCHAR(15) NOT NULL UNIQUE
 );
 
 -- -----------------------------------------------------
@@ -43,7 +46,3 @@ CREATE TABLE IF NOT EXISTS `checks` (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
-
-
-
-.
