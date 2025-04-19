@@ -1,0 +1,37 @@
+CREATE TABLE IF NOT EXISTS devices.model (
+    id_model SERIAL PRIMARY KEY,
+    model_name VARCHAR(15) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS devices.device (
+    id_device SERIAL PRIMARY KEY,
+    inventory_number VARCHAR(15) NOT NULL,
+    firmware_version VARCHAR(25) NOT NULL,
+    model_id INTEGER NOT NULL,
+    FOREIGN KEY (model_id)
+        REFERENCES devices.model (id_model)  -- Добавлено devices.
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS devices.operator (
+    id_operator SERIAL PRIMARY KEY,
+    full_name VARCHAR(20) NOT NULL UNIQUE,
+    personal_number VARCHAR(15) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS devices.checks (
+    id_check SERIAL PRIMARY KEY,
+    device_id INTEGER NOT NULL,
+    operator_id INTEGER NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    date_time TIMESTAMP NOT NULL,
+    FOREIGN KEY (device_id)
+        REFERENCES devices.device (id_device)  -- Добавлено devices.
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (operator_id)
+        REFERENCES devices.operator (id_operator)  -- Добавлено devices.
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
